@@ -45,12 +45,26 @@
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"],
+          "object", // オブジェクト参照（import foo from 'bar';）
+          "type", // タイプ指定（import type { foo } from 'bar';）、Flowの型宣言（import type Foo from 'bar';）
+          "sideEffect", // 副作用のあるモジュール（import 'bar';）
+          "unknown", // すべての外部import文が@aliasフィールドを持たない場合のデフォルト
+          "@src" // @aliasフィールドを持つ外部import文
+        ],
         "pathGroups": [
           {
-            "pattern": "{react,react-dom/**,react-router-dom}",
+            "pattern": "{react,react-dom/**,react-router-dom,next/**}",
             "group": "builtin",
             "position": "before"
+          },
+          {
+            "pattern": "{next-seo}",
+            "group": "builtin",
+            "position": "after"
           },
           {
             "pattern": "{@mui/**,@emotion/**}",
@@ -60,12 +74,13 @@
           {
             "pattern": "@src/**",
             "group": "parent",
-            "position": "before"
+            "position": "after"
           }
         ],
         "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": {
-          "order": "asc"
+          "order": "asc",
+          "caseInsensitive": true
         },
         "newlines-between": "always"
       }

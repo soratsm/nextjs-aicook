@@ -1,5 +1,6 @@
- type RecipeType = {
-  name: string;
+type RecipeType = {
+  nameja: string;
+  nameen: string;
   overview: string;
   time: string;
   ingredients: [{ name: string; vol: string }];
