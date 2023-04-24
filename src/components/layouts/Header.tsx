@@ -2,8 +2,6 @@
 // ログインしているかどうかで表示を変える
 
 import Link from 'next/link';
-import React from 'react';
-import { useRecoilValue } from 'recoil';
 
 const Header: React.FC = () => {
   const user = true; //useRecoilValue(userState);

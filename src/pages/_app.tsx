@@ -1,9 +1,11 @@
 // import { GoogleAnalytics, usePageView } from '@src/lib/gtag';
-import { nextseoConfig } from '@src/commons/utils/nextseo';
-import { DefaultSeo } from 'next-seo';
-import { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
+
+import { DefaultSeo } from 'next-seo';
 import { RecoilRoot } from 'recoil';
+
+import { nextseoConfig } from '@src/commons/utils/nextseo';
 
 const MyApp: React.FC<AppProps> = (props) => {
   const { Component, pageProps } = props;

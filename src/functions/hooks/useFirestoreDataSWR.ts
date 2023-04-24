@@ -1,8 +1,10 @@
 // swr を使用してfiresotreからrecipeデータを取得するカスタムフック
-import { db } from '@src/commons/utils/firebase';
-import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+
+import { collection, getDocs } from 'firebase/firestore';
 import useSWRImmutable from 'swr/immutable';
+
+import { db } from '@src/commons/utils/firebase';
 
 const useFirestoreDataSWR = <T>(collectionName: string) => {
   const [data, setData] = useState<T[]>([]);
