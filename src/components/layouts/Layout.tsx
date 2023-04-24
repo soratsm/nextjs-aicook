@@ -1,9 +1,9 @@
-import { Container, Footer, Header } from '@src/components/layouts';
 import { NextSeo } from 'next-seo';
-import { ReactNode } from 'react';
+
+import { Container, Footer, Header } from '@src/components/layouts';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
   title?: string;
   description?: string;
 };

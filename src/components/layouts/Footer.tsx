@@ -1,6 +1,7 @@
-import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { memo } from 'react';
+
+import { Box, Typography } from '@mui/material';
 
 const Footer = () => {
   const today = new Date();

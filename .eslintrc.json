@@ -1,5 +1,4 @@
 {
-  "files": ["*.ts", "*.tsx"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "tsconfig.json",
@@ -10,25 +9,10 @@
     "@typescript-eslint/eslint-plugin",
     "react",
     "import",
-    "unused-imports"
+    "unused-imports",
+    "prettier"
   ],
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/react"
-  ],
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [["@src", "./src/*"]],
-        "extensions": [".ts", ".tsx", ".js", "jsx", ".json"]
-      }
-    }
-  },
+  "extends": ["next", "next/core-web-vitals", "prettier"],
   "root": true,
   "env": {
     "node": true,
@@ -47,13 +31,8 @@
       {
         "groups": [
           ["builtin", "external"],
-          "internal",
-          ["parent", "sibling", "index"],
-          "object", // オブジェクト参照（import foo from 'bar';）
-          "type", // タイプ指定（import type { foo } from 'bar';）、Flowの型宣言（import type Foo from 'bar';）
-          "sideEffect", // 副作用のあるモジュール（import 'bar';）
-          "unknown", // すべての外部import文が@aliasフィールドを持たない場合のデフォルト
-          "@src" // @aliasフィールドを持つ外部import文
+          ["internal", "parent", "sibling", "index"],
+          "unknown" // すべての外部import文が@aliasフィールドを持たない場合のデフォルト
         ],
         "pathGroups": [
           {
@@ -62,18 +41,18 @@
             "position": "before"
           },
           {
-            "pattern": "{next-seo}",
-            "group": "builtin",
-            "position": "after"
-          },
-          {
-            "pattern": "{@mui/**,@emotion/**}",
+            "pattern": "next/**",
             "group": "external",
             "position": "before"
           },
           {
+            "pattern": "{@mui/**,@emotion/**}",
+            "group": "internal",
+            "position": "before"
+          },
+          {
             "pattern": "@src/**",
-            "group": "parent",
+            "group": "internal",
             "position": "after"
           }
         ],

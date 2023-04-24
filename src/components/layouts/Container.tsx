@@ -1,11 +1,9 @@
 // メインのcontainerコンポーネント
-
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React, { ReactNode } from 'react';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
 const Container: React.FC<Props> = (props) => {
