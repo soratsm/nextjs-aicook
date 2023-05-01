@@ -11,10 +11,9 @@ const Header: React.FC = () => {
       <>
         <header>
           <nav>
-            <Link href='/'>Home</Link> | <Link href='/about'>About</Link> |{' '}
-            <Link href='/users'>Users List</Link> | <a href='/api/users'>Users API</a> |{' '}
-            <Link href='/posts'>Posts</Link> | <Link href='/posts/new'>New Post</Link> |{' '}
-            <Link href='/profile'>Profile</Link> | <Link href='/logout'>Logout</Link>
+            <Link href='/'>Home</Link> |
+            <Link href='/insert'>Insert Data</Link> |
+            <Link href='/privacy-policy'>プライバシーポリシー</Link>
           </nav>
         </header>
       </>

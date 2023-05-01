@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { RecoilRoot } from 'recoil';
 
-import { nextseoConfig } from '@src/commons/utils/nextseo';
+import { nextseoConfig } from '@src/lib/utils/nextseo';
 
 const MyApp: React.FC<AppProps> = (props) => {
   const { Component, pageProps } = props;
