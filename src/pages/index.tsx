@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import type { RecipeType } from '@src/commons/types';
 import { Layout } from '@src/components/layouts';
-import { useFirestoreDataSWR } from '@src/functions/hooks';
+import { useGetFirestoreSWR } from '@src/lib/hooks';
+import type { RecipeType } from '@src/lib/types';
 
 const Home: NextPage = () => {
-  const { data, loading, error } = useFirestoreDataSWR<RecipeType>('recipes');
+  const { data, loading, error } = useGetFirestoreSWR<RecipeType>('recipes');
   console.log(data);
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!!</div>;

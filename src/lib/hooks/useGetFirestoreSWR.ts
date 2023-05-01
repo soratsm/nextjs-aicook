@@ -4,11 +4,10 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import useSWRImmutable from 'swr/immutable';
 
-import { db } from '@src/commons/utils/firebase';
+import { db } from '@src/lib/utils/firebase';
 
-const useFirestoreDataSWR = <T>(collectionName: string) => {
+const useGetFirestoreSWR = <T>(collectionName: string) => {
   const [data, setData] = useState<T[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   const fetcher = async () => {
     const querySnapshot = await getDocs(collection(db, collectionName));
@@ -20,7 +19,6 @@ const useFirestoreDataSWR = <T>(collectionName: string) => {
   useEffect(() => {
     if (swrData) {
       setData(swrData);
-      setLoading(false);
     }
   }, [swrData]);
 
@@ -31,4 +29,4 @@ const useFirestoreDataSWR = <T>(collectionName: string) => {
   };
 };
 
-export default useFirestoreDataSWR;
+export default useGetFirestoreSWR;
