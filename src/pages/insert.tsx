@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { SelectChangeEvent } from '@mui/material';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-import { Container } from '@src/components/layouts';
+import { Layout } from '@src/components/layouts';
 import { Dropzone } from '@src/components/parts';
 import { usePostFirestore } from '@src/lib/hooks';
 
@@ -24,7 +24,7 @@ const Insert = () => {
   };
   return (
     <>
-      <Container>
+      <Layout mainTitle='データインポート'>
         <h1>Upload JSON file and save data to Firestore</h1>
         <FormControl variant='standard' sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id='label'>コレクション名</InputLabel>
@@ -42,7 +42,7 @@ const Insert = () => {
           </Select>
         </FormControl>
         <Dropzone onUpload={handleUpload} />
-      </Container>
+      </Layout>
     </>
   );
 };

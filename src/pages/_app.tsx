@@ -16,7 +16,7 @@ const MyApp: React.FC<AppProps> = (props) => {
       <Head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      </Head>{' '}
+      </Head>
       <DefaultSeo {...nextseoConfig} />
       <RecoilRoot>
         <Component {...pageProps} />

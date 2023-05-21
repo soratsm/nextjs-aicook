@@ -7,7 +7,7 @@
 // このファイルを作成したら、pages\_app.tsxでimportして使う
 
 export const nextseoConfig = {
-  title: 'Next.js + WordPressでブログを作る',
+  title: process.env.NEXT_PUBLIC_TITLE,
   titleTemplate: '%s | Next.js + WordPressでブログを作る',
   description: 'Next.js + WordPressでブログを作る',
   canonical: 'https://nextjs-wordpress-blog.vercel.app/',

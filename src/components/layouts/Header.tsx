@@ -1,33 +1,27 @@
-// ナビゲーションバーのコンポーネント
-// ログインしているかどうかで表示を変える
+import { useState } from 'react';
 
-import Link from 'next/link';
+import SearchIcon from '@mui/icons-material/Search';
+import { Toolbar, Box, IconButton } from '@mui/material';
+
+import { HeaderTitle, LoginButton, HeaderMenu } from './';
 
 const Header: React.FC = () => {
-  const user = true; //useRecoilValue(userState);
+  const [isLogin, setIsLogin] = useState(true); //useRecoilValue(userState);
+  const onClick = () => {
+    setIsLogin(!isLogin);
+  };
 
-  if (user) {
-    return (
-      <>
-        <header>
-          <nav>
-            <Link href='/'>Home</Link> |
-            <Link href='/insert'>Insert Data</Link> |
-            <Link href='/privacy-policy'>プライバシーポリシー</Link>
-          </nav>
-        </header>
-      </>
-    );
-  }
   return (
-    <>
-      <header>
-        <nav>
-          <Link href='/'>Home</Link> | <Link href='/about'>About</Link> |{' '}
-          <Link href='/users'>Users List</Link> | <a href='/api/users'>Users API</a>
-        </nav>
-      </header>
-    </>
+    <Box bgcolor={'white'}>
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <HeaderTitle />
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+        <LoginButton isLogin={isLogin} onClick={onClick} />
+      </Toolbar>
+      <HeaderMenu isLogin={isLogin} />
+    </Box>
   );
 };
 

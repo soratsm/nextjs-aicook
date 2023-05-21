@@ -1,3 +1,4 @@
+
 import { useCallback } from 'react';
 
 import { useDropzone } from 'react-dropzone';
@@ -13,7 +14,6 @@ const Dropzone: React.FC<Props> = ({ onUpload }) => {
     (acceptedFiles: Blob[]) => {
       acceptedFiles.forEach((file) => {
         if (file.type !== 'application/json') {
-          console.log(`Invalid file type: ${file.type}`);
           return;
         }
         const reader = new FileReader();
@@ -22,7 +22,6 @@ const Dropzone: React.FC<Props> = ({ onUpload }) => {
 
           // 受け取ったデータ配列であることを確認する
           if (!Array.isArray(jsonData)) {
-            console.log('Invalid data: not an array');
             return;
           }
           onUpload(jsonData);
@@ -33,6 +32,7 @@ const Dropzone: React.FC<Props> = ({ onUpload }) => {
     [onUpload],
   );
 
+  // ドロップゾーンの設定
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   return (
@@ -55,3 +55,5 @@ const Dropzone: React.FC<Props> = ({ onUpload }) => {
 };
 
 export default Dropzone;
+
+
